@@ -82,6 +82,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "ckr_knowledge_repository.users",
     "ckr_knowledge_repository.api",
+    "ckr_knowledge_repository.entry",
     # Your stuff: custom apps go here
     'rest_framework'
 ]

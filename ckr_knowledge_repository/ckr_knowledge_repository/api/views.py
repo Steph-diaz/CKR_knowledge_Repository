@@ -9,5 +9,5 @@ class EntryViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
-    queryset = Entry.objects.all().order_by('entry_id')
+    queryset = Entry.objects.all().order_by('id')
     serializer_class = EntrySerializer
