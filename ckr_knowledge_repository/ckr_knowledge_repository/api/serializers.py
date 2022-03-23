@@ -7,5 +7,4 @@ class EntrySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Entry
-        lookup_field = 'entry_id'
         fields = '__all__'

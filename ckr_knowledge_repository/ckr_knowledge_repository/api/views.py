@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
+from django.shortcuts import render
 
 from api.models import Entry
 from api.serializers import EntrySerializer

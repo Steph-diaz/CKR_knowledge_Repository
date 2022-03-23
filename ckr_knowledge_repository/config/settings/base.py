@@ -80,7 +80,8 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    "ckr_knowledge_repository.users",
+    'ckr_knowledge_repository.users.apps.UsersConfig',
+    # "ckr_knowledge_repository.users",
     "ckr_knowledge_repository.api",
     "ckr_knowledge_repository.entry",
     # Your stuff: custom apps go here
@@ -107,6 +108,8 @@ AUTH_USER_MODEL = "users.User"
 LOGIN_REDIRECT_URL = "users:redirect"
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-url
 LOGIN_URL = "account_login"
+
+LOGOUT_REDIRECT_URL = "users:redirect"
 
 # PASSWORDS
 # ------------------------------------------------------------------------------
@@ -267,7 +270,7 @@ ACCOUNT_AUTHENTICATION_METHOD = "username"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_EMAIL_REQUIRED = True
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_VERIFICATION = "none"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_ADAPTER = "ckr_knowledge_repository.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/forms.html
