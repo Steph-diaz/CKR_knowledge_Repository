@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from pathlib import Path
 from ckr_knowledge_repository.users.models import User
+from simple_history.models import HistoricalRecords
 
 
 class Entry(models.Model):
@@ -13,6 +14,7 @@ class Entry(models.Model):
     content = models.TextField(null=True, blank=True)
     key_words = models.CharField(max_length=60, blank=True, null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    history = HistoricalRecords()
 
     class Meta:
         app_label = "api"

@@ -77,6 +77,8 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    'rest_framework',
+    "simple_history"
 ]
 
 LOCAL_APPS = [
@@ -85,7 +87,7 @@ LOCAL_APPS = [
     "ckr_knowledge_repository.api",
     "ckr_knowledge_repository.entry",
     # Your stuff: custom apps go here
-    'rest_framework'
+
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -144,6 +146,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.common.BrokenLinkEmailsMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'simple_history.middleware.HistoryRequestMiddleware',
 ]
 
 # STATIC

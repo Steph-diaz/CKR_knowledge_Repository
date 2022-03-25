@@ -1,1 +1,25 @@
 {% extends "base.html" %}
+
+{% block content %}
+
+  <article class="media content-section">
+    <div class="media-body">
+      <div class="article-metadata d-flex flex-row justify-content-between">
+        <div class="d-flex flex-row">
+          <a class="mr-2" href="#">{{ entry.author }}</a>
+          <small class="text-muted d-flex align-items-end">
+            {{ entry.date|date:'F d, Y' }}</small>
+        </div>
+        <div>
+          <small class="text-muted">{{ entry.type }}</small>
+        </div>
+      </div>
+      <h2 class="article-title">{{ entry.title }}</h2>
+      <p class="article-content">{{ entry.content }}</p>
+      <footer class="  mx-auto">
+        <small class="article-footer text-white bg-lsteel">{{ entry.key_words }}</small>
+      </footer>
+    </div>
+  </article>
+
+{% endblock content %}

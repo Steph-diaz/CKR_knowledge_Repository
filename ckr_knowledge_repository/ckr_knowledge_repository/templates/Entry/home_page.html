@@ -1,23 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {% for post in posts %}
+  {% for entry in entries %}
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata d-flex flex-row justify-content-between">
               <div class="d-flex flex-row">
-                <a class="mr-2" href="#">{{ post.author }}</a>
+                <a class="mr-2" href="#">{{ entry.author }}</a>
                 <small class="text-muted d-flex align-items-end">
-                  {{ post.date|date:'F d, Y' }}</small>
+                  {{ entry.date|date:'F d, Y' }}</small>
               </div>
               <div>
-                <small class="text-muted">{{ post.type }}</small>
+                <small class="text-muted">{{ entry.type }}</small>
               </div>
             </div>
-            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content }}</p>
+            <h2><a class="article-title" href="{% url 'entry_detail' pk=entry.id %}"
+            >{{ entry.title }}</a></h2>
+            <p class="article-content">{{ entry.content }}</p>
             <footer class="  mx-auto">
-              <small class="article-footer text-white bg-lsteel">{{ post.key_words }}</small>
+              <small class="article-footer text-white bg-lsteel">{{ entry.key_words }}</small>
             </footer>
           </div>
         </article>
