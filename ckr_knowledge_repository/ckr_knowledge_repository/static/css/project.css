@@ -106,19 +106,25 @@ footer small {
   border-radius: 20px ;
 }
 
-.article-svg {
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
+.btn-submit {
+  background: #A3DDCA;
+  color: #444444;
+  border-color: #A3DDCB;
 }
 
-.account-img {
-  height: 125px;
-  width: 125px;
-  margin-right: 20px;
-  margin-bottom: 16px;
-}
+/*.article-svg {*/
+/*  width: 25px;*/
+/*  height: 25px;*/
+/*  vertical-align: middle;*/
+/*}*/
 
-.account-heading {
-  font-size: 2.5rem;
-}
+/*.account-img {*/
+/*  height: 125px;*/
+/*  width: 125px;*/
+/*  margin-right: 20px;*/
+/*  margin-bottom: 16px;*/
+/*}*/
+
+/*.account-heading {*/
+/*  font-size: 2.5rem;*/
+/*}*/

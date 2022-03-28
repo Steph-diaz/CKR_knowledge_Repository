@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
 from pathlib import Path
 from ckr_knowledge_repository.users.models import User
 from simple_history.models import HistoricalRecords
@@ -23,3 +24,7 @@ class Entry(models.Model):
 
     def __str__(self):
         return f"{self.id}: {self.title}"
+
+    # How to find the url of any entry
+    def get_absolute_url(self):
+        return reverse('entry_detail', kwargs={'pk': self.pk})

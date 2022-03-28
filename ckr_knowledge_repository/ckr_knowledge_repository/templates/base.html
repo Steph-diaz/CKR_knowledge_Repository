@@ -60,9 +60,9 @@
                 <a class="nav-link" href="{% url 'home_page' %}">Home <span class="visually-hidden">
                   (current)</span></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">About</a>
-              </li>
+{#              <li class="nav-item">#}
+{#                <a class="nav-link" href="{% url 'about' %}">About</a>#}
+{#              </li>#}
               {% if request.user.is_authenticated %}
                 <li class="nav-item">
                   {# URL provided by django-allauth/account/urls.py #}
@@ -108,22 +108,23 @@
           {% block content %}{% endblock %}
         </div>
         <div class="col-md-4">
-          <div class="content-section">
-            <h3>Actions</h3>
-            <p class='text-muted'>What would you like to do...
+          {% if request.user.is_authenticated %}
+            <div class="content-section">
+              <h3>Actions</h3>
+              <p class='text-muted'>What would you like to do...</p>
               <div class="list-group">
                 <a class="list-group-item list-group-item-light list-group-item-action"
-                   href="{% url 'home_page' %}">New Entry</a>
+                   href="{% url 'entry_create' %}">New Entry</a>
                 <a class="list-group-item list-group-item-light list-group-item-action"
                    href="#">Archives
                 </a>
-                <a class="list-group-item list-group-item-light list-group-item-action"
-                   href="#">etc</a>
-                <a class="list-group-item list-group-item-light list-group-item-action"
-                   href="#">etc</a>
+  {#                <a class="list-group-item list-group-item-light list-group-item-action"#}
+  {#                   href="#">etc</a>#}
+  {#                <a class="list-group-item list-group-item-light list-group-item-action"#}
+  {#                   href="#">etc</a>#}
               </div>
-            </p>
-          </div>
+            </div>
+          {% endif %}
         </div>
       </div>
     </main>

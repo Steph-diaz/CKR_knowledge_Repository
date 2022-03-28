@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ user.username }}{% endblock %}
+
+{% block content %}
+  <div class="content-section">
+    <form method="POST">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">New entry</legend>
+        {{ form|crispy }}
+      </fieldset>
+      <div class="form-group">
+        <button class="btn btn-submit" type="submit">Create Entry</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}
+{##}
+{#  <h1>{{ user.username }}</h1>#}
+{#  <form class="form-horizontal" method="post" action="{% url 'users:update' %}">#}
+{#    {% csrf_token %}#}
+{#    {{ form|crispy }}#}
+{#    <div class="control-group">#}
+{#      <div class="controls">#}
+{#        <button type="submit" class="btn btn-primary">Update</button>#}
+{#      </div>#}
+{#    </div>#}
+{#  </form>#}
