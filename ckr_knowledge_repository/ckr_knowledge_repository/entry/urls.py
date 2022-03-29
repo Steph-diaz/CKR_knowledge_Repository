@@ -6,6 +6,8 @@ urlpatterns = [
     path('', views.EntryView.as_view(), name='home_page'),
     path('entry/<int:pk>/', views.EntryDetailView.as_view(), name='entry_detail'),
     path('entry/new/', views.EntryCreateView.as_view(), name='entry_create'),
+    path('entry/<int:pk>/update/', views.EntryUpdateView.as_view(), name='entry_update'),
+    path('entry/<int:pk>/delete/', views.EntryDeleteView.as_view(), name='entry_delete'),
     # path('', views.home, name='home_page')
     # re_path("^(?P<pk>\d+)$", view=views.DetailView.as_view(), name="detail_view"),
 ]

@@ -106,10 +106,38 @@ footer small {
   border-radius: 20px ;
 }
 
-.btn-submit {
+/* Button left margin*/
+.btn-l-margin {
+  margin-left: 10px;
+}
+
+.btn-outline-success:hover {
+  background-color: #729a8d;
+  border-color: #729a8d;
+}
+
+.btn-green {
   background: #A3DDCA;
   color: #444444;
-  border-color: #A3DDCB;
+  border-color: #A3DDCA;
+}
+
+.btn-green:hover {
+  background: #92c6b5;
+  /*color: white;*/
+  border-color: #92c6b5;
+}
+
+.btn-red {
+  background: #f0aab1;
+  color: #444444;
+  border-color: #f0aab1;
+}
+
+.btn-red:hover {
+  background: #ea8992;
+  /*color: white;*/
+  border-color: #ea8992;
 }
 
 /*.article-svg {*/

@@ -20,6 +20,12 @@
         <small class="article-footer text-white bg-lsteel">{{ entry.key_words }}</small>
       </footer>
     </div>
+    <div>
+      <a class="btn btn-green "
+           href="{% url "entry_update" pk=entry.id%}">Update Entry</a>
+      <a class="btn btn-red btn-l-margin"
+           href="{% url "entry_delete" pk=entry.id%}">Delete Entry</a>
+    </div>
   </article>
 
 {% endblock content %}
