@@ -30,8 +30,8 @@ ul {
   background-color: #5f788a;
 }
 
-.bg-lsteel {
-  background-color: #7e93a1;
+.bg-yellow {
+  background-color: #F0C38E;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -90,7 +90,7 @@ a.article-title:hover {
 }
 
 .article-metadata small {
-  padding-left: 10px;
+  /*padding-left: 10px;*/
 }
 
 footer {
@@ -100,10 +100,10 @@ footer {
   /*border-top: 1px solid #e3e3e3;*/
 }
 
-footer small {
+.key-bg {
   padding: 5px;
   margin-top: 3px;
-  border-radius: 20px ;
+  border-radius: 20px;
 }
 
 /* Button left margin*/

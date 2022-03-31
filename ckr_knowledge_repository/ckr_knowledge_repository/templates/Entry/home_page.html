@@ -5,21 +5,22 @@
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata d-flex flex-row justify-content-between">
-              <div class="d-flex flex-row">
-                <a class="mr-2" href="#">{{ entry.author }}</a>
-                <small class="text-muted d-flex align-items-end">
-                  {{ entry.date|date:'F d, Y' }}</small>
+              <div class="d-flex flex-row mb-2">
+                <h5 class="mr-2 mb-0" style="color: #007880;" href="#">{{ entry.author }}</h5>
+                <small class="text-muted d-flex align-items-end" style="margin-left: 5px;">
+                  {{ entry.updated|date:'F d, Y' }}</small>
               </div>
               <div>
                 <small class="text-muted">{{ entry.type }}</small>
               </div>
             </div>
-            <h2><a class="article-title" href="{% url 'entry_detail' pk=entry.id %}"
+            <h2><a class="article-title mt-2" href="{% url 'entry_detail' pk=entry.id %}"
             >{{ entry.title }}</a></h2>
-            <p class="article-content">{{ entry.content }}</p>
-            <footer class="  mx-auto">
-              <small class="article-footer text-white bg-lsteel">{{ entry.key_words }}</small>
-            </footer>
+{#            Add style = white-space:nowrap to add 3 points at the end#}
+            <p class="article-content  text-truncate"
+               style="max-height: 70px; ">{{ entry.content }}</p>
+            <small class="article-footer bg-yellow key-bg">{{ entry.key_words }}</small>
+
           </div>
         </article>
     {% endfor %}

@@ -15,6 +15,7 @@ class Entry(models.Model):
     content = models.TextField(null=True, blank=True)
     key_words = models.CharField(max_length=60, blank=True, null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    updated = models.DateTimeField(auto_now=True)
     history = HistoricalRecords()
 
     class Meta:

@@ -4,28 +4,44 @@
 
   <article class="media content-section">
     <div class="media-body">
-      <div class="article-metadata d-flex flex-row justify-content-between">
-        <div class="d-flex flex-row">
-          <a class="mr-2" href="#">{{ entry.author }}</a>
-          <small class="text-muted d-flex align-items-end">
-            {{ entry.date|date:'F d, Y' }}</small>
+      <div class="article-metadata ">
+        <div class="d-flex flex-row justify-content-between mb-2">
+          <div class="">
+            <h4 class="mr-3 d-flex flex-row align-items-center" style="color: #007880;"
+                href="#">{{ entry.author }}</h4>
+            <small class="text-muted  align-items-end">
+              {{ entry.date|date:'F d, Y' }}</small>
+          </div>
+          <div>
+            <small class="text-muted d-flex flex-row justify-content-end">{{ entry.type }}</small>
+            {% if entry.author == user %}
+          <div class="d-flex flex-row justify-content-end mt-2 mb-2">
+            <a class="btn btn-green btn-sm"
+                 href="{% url "entry_update" pk=entry.id%}">Update Entry</a>
+            <a class="btn btn-red btn-l-margin btn-sm"
+                 href="{% url "entry_delete" pk=entry.id%}">Delete Entry</a>
+          </div>
+          {% endif %}
+          </div>
         </div>
-        <div>
-          <small class="text-muted">{{ entry.type }}</small>
-        </div>
+
+
       </div>
-      <h2 class="article-title">{{ entry.title }}</h2>
+      <h2 class="article-title mt-2">{{ entry.title }}</h2>
       <p class="article-content">{{ entry.content }}</p>
-      <footer class="  mx-auto">
-        <small class="article-footer text-white bg-lsteel">{{ entry.key_words }}</small>
-      </footer>
+
+      <small class="article-footer bg-yellow key-bg">{{ entry.key_words }}</small>
+
     </div>
-    <div>
-      <a class="btn btn-green "
-           href="{% url "entry_update" pk=entry.id%}">Update Entry</a>
-      <a class="btn btn-red btn-l-margin"
-           href="{% url "entry_delete" pk=entry.id%}">Delete Entry</a>
-    </div>
+{#    {% if entry.author == user %}#}
+{#      <div style="margin-top: 20px;">#}
+{#        <a class="btn btn-green btn-sm"#}
+{#             href="{% url "entry_update" pk=entry.id%}">Update Entry</a>#}
+{#        <a class="btn btn-red btn-l-margin btn-sm"#}
+{#             href="{% url "entry_delete" pk=entry.id%}">Delete Entry</a>#}
+{#      </div>#}
+{#    {% endif %}#}
+
   </article>
 
 {% endblock content %}
