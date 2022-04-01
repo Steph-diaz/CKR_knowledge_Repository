@@ -9,8 +9,27 @@
           <div class="">
             <h4 class="mr-3 d-flex flex-row align-items-center" style="color: #007880;"
                 href="#">{{ entry.author }}</h4>
-            <small class="text-muted  align-items-end">
-              {{ entry.date|date:'F d, Y' }}</small>
+            {% if entry.date|date:'F d, Y' == entry.updated|date:'F d, Y' %}
+              <div>
+                <small class="align-items-end font-weight-bold font-italic">
+                  Posted:</small>
+                <small class="text-muted  align-items-end" style="margin-right: 5px">
+                {{ entry.date|date:'F d, Y' }}</small>
+              </div>
+            {% elif entry.date|date:'F d, Y' != entry.updated|date:'F d, Y' %}
+              <div>
+                <small class="align-items-end font-weight-bold font-italic">
+                  Posted:</small>
+                <small class="text-muted  align-items-end" style="margin-right: 5px">
+                {{ entry.date|date:'F d, Y' }}</small>
+  {#              separator between dates#}
+                <small>|</small>
+                <small class="align-items-end font-weight-bold font-italic"
+                       style="margin-left: 5px"> Updated:</small>
+                <small class="text-muted  align-items-end">
+                {{ entry.updated|date:'F d, Y' }}</small>
+              </div>
+            {% endif %}
           </div>
           <div>
             <small class="text-muted d-flex flex-row justify-content-end">{{ entry.type }}</small>
