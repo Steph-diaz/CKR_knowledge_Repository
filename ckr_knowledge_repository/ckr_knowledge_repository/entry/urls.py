@@ -8,6 +8,6 @@ urlpatterns = [
     path('entry/new/', views.EntryCreateView.as_view(), name='entry_create'),
     path('entry/<int:pk>/update/', views.EntryUpdateView.as_view(), name='entry_update'),
     path('entry/<int:pk>/delete/', views.EntryDeleteView.as_view(), name='entry_delete'),
-    # path('', views.home, name='home_page')
+    path('entry/archives/', views.EntryHistoryView.as_view(), name='entry_archives'),
     # re_path("^(?P<pk>\d+)$", view=views.DetailView.as_view(), name="detail_view"),
 ]

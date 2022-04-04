@@ -78,3 +78,11 @@ class EntryDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == item.author:
             return True
         return False
+
+
+class EntryHistoryView(ListView):
+    template_name = "Entry/entry_history_list.html"
+
+    def get_queryset(self):
+        history = Entry.history.all()
+        return history

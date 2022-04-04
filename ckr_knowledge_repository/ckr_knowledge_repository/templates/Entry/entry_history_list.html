@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3> archive table</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>History Date/Time</th>
+        <th>History Action</th>
+        <th>History User</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for t in object_list %}
+      <tr>
+        <td>{{ t.history_id }}</td>
+        <td>{{ t.title }}</td>
+        <td>{{ t.history_date|date:'F d, Y' }}</td>
+        <td>{{ t.get_history_type_display }}</td>
+        <td>{{ t.history_user }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock content %}
