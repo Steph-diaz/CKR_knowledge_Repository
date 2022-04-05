@@ -66,7 +66,8 @@
               {% if request.user.is_authenticated %}
                 <li class="nav-item">
                   {# URL provided by django-allauth/account/urls.py #}
-                  <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% translate "My Profile" %}</a>
+                  <a class="nav-link" href="{% url 'user_list' request.user.username  %}">
+                    {% translate "My Entries" %}</a>
                 </li>
                 <li class="nav-item">
                   {# URL provided by django-allauth/account/urls.py #}
@@ -116,8 +117,7 @@
                 <a class="list-group-item list-group-item-light list-group-item-action"
                    href="{% url 'entry_create' %}">New Entry</a>
                 <a class="list-group-item list-group-item-light list-group-item-action"
-                   href="#">Archives
-                </a>
+                   href="#">etc...</a>
   {#                <a class="list-group-item list-group-item-light list-group-item-action"#}
   {#                   href="#">etc</a>#}
   {#                <a class="list-group-item list-group-item-light list-group-item-action"#}

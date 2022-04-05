@@ -7,14 +7,8 @@ from django.views.generic import (
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from api.models import Entry
-from django.shortcuts import render
-
-#
-# def home(request):
-#     context = {
-#         'entries': Entry.objects.all()
-#     }
-#     return render(request, 'Entry/home_page.html', context)
+from ckr_knowledge_repository.users.models import User
+from django.shortcuts import render, get_object_or_404
 
 
 class EntryView(LoginRequiredMixin, ListView):
@@ -24,6 +18,17 @@ class EntryView(LoginRequiredMixin, ListView):
     paginate_by = 4
 #     order entries from newest to oldest
     ordering = ['-updated']
+
+
+class UserListView(LoginRequiredMixin, ListView):
+    model = Entry
+    template_name = 'Entry/user_entry.html'
+    context_object_name = 'entries'
+    paginate_by = 4
+
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Entry.objects.filter(author=user).order_by('-updated')
 
 
 class EntryDetailView(LoginRequiredMixin, DetailView):

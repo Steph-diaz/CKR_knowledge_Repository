@@ -7,8 +7,8 @@
       <div class="article-metadata ">
         <div class="d-flex flex-row justify-content-between mb-2">
           <div class="">
-            <h4 class="mr-3 d-flex flex-row align-items-center" style="color: #007880;"
-                href="#">{{ entry.author }}</h4>
+            <a class="mr-3 d-flex flex-row align-items-center" style="color: #007880;"
+                href="{% url 'user_list' entry.author.username %}">{{ entry.author }}</a>
             {% if entry.date|date:'F d, Y' == entry.updated|date:'F d, Y' %}
               <div>
                 <small class="align-items-end font-weight-bold font-italic">
