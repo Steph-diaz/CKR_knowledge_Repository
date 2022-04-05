@@ -140,6 +140,18 @@ footer {
   border-color: #ea8992;
 }
 
+.btn-steel {
+  color: white;
+  background-color: #5f788a;
+  border-color: #5f788a;
+
+}
+
+.btn-outline-steel {
+  color: #555;
+  border-color: #5f788a;
+}
+
 /*.article-svg {*/
 /*  width: 25px;*/
 /*  height: 25px;*/
