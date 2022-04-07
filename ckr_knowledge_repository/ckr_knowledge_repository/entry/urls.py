@@ -10,5 +10,5 @@ urlpatterns = [
     path('entry/<int:pk>/update/', views.EntryUpdateView.as_view(), name='entry_update'),
     path('entry/<int:pk>/delete/', views.EntryDeleteView.as_view(), name='entry_delete'),
     path('entry/archives/', views.EntryHistoryView.as_view(), name='entry_archives'),
-    # re_path("^(?P<pk>\d+)$", view=views.DetailView.as_view(), name="detail_view"),
+    path('entry/archives/<int:pk>/', views.HistoryDetailView.as_view(), name='history_detail'),
 ]

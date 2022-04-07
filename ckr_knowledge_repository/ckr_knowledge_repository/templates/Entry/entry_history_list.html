@@ -15,7 +15,7 @@
     <tbody>
       {% for t in object_list %}
       <tr>
-        <td>{{ t.history_id }}</td>
+        <td><a href="{% url 'history_detail' pk=t.history_id%}">{{ t.history_id }}</a> </td>
         <td>{{ t.title }}</td>
         <td>{{ t.history_date|date:'F d, Y' }}</td>
         <td>{{ t.get_history_type_display }}</td>

@@ -85,9 +85,18 @@ class EntryDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return False
 
 
-class EntryHistoryView(ListView):
+class EntryHistoryView(LoginRequiredMixin, ListView):
     template_name = "Entry/entry_history_list.html"
 
     def get_queryset(self):
         history = Entry.history.all()
         return history
+
+
+class HistoryDetailView(LoginRequiredMixin, DetailView):
+    model = Entry.history.model
+    template_name = 'Entry/history_detail.html'
+    context_object_name = 'history'
+# class PollHistoryListView(ListView): # or PollHistorySerializer(ModelSerializer):
+#     class Meta:
+#         model = Poll.history.model
