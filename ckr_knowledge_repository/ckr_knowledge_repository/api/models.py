@@ -5,15 +5,29 @@ from pathlib import Path
 from ckr_knowledge_repository.users.models import User
 from simple_history.models import HistoricalRecords
 
+STATUS_CHOICES = (
+    ('IN_PROGRESS', 'In Progress'),
+    ('FINAL', 'Final'),
+)
+
+ENTRY_RECORD = (
+    ('ACTIVE', 'Active'),
+    ('ARCHIVED', 'Archived'),
+)
+
 
 class Entry(models.Model):
     name = 'entry'
 
+    entry_number = models.IntegerField(blank=True, null=True)
     title = models.CharField(max_length=50, null=True, blank=True)
     date = models.DateTimeField(default=timezone.now)
     type = models.CharField(max_length=50, null=True, blank=True)
     content = models.TextField(null=True, blank=True)
+    links = models.TextField(null=True, blank=True)
     key_words = models.CharField(max_length=60, blank=True, null=True)
+    status = models.CharField(max_length=50, choices=STATUS_CHOICES, default='IN_PROGRESS')
+    record = models.CharField(max_length=50, choices=ENTRY_RECORD, default='ACTIVE')
     author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     updated = models.DateTimeField(auto_now=True)
     history = HistoricalRecords()

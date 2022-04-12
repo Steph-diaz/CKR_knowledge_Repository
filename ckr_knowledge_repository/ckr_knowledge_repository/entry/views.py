@@ -41,7 +41,8 @@ class EntryCreateView(LoginRequiredMixin, CreateView):
     model = Entry
     template_name = 'Entry/entry_form.html'
     context_object_name = 'entry'
-    fields = ['title', 'content', 'type', 'key_words']
+    # fields = ['title', 'content', 'type', 'key_words']
+    fields = ['entry_number', 'status','record', 'title', 'content', 'type', 'key_words', 'links']
 
     # set author in form
     def form_valid(self, form):
@@ -54,7 +55,8 @@ class EntryUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Entry
     template_name = 'Entry/entry_form.html'
     context_object_name = 'entry'
-    fields = ['title', 'content', 'type', 'key_words']
+    # fields = ['title', 'content', 'type', 'key_words']
+    fields = ['entry_number', 'status','record', 'title', 'content', 'type', 'key_words', 'links']
 
     # set author in form
     def form_valid(self, form):
@@ -97,6 +99,4 @@ class HistoryDetailView(LoginRequiredMixin, DetailView):
     model = Entry.history.model
     template_name = 'Entry/history_detail.html'
     context_object_name = 'history'
-# class PollHistoryListView(ListView): # or PollHistorySerializer(ModelSerializer):
-#     class Meta:
-#         model = Poll.history.model
+

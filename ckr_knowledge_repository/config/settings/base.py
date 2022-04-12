@@ -78,7 +78,8 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     'rest_framework',
-    "simple_history"
+    "simple_history",
+    'django_bootstrap_icons'
 ]
 
 LOCAL_APPS = [

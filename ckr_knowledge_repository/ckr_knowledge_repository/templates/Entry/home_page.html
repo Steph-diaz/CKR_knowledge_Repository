@@ -6,12 +6,16 @@
         <div class="media-body">
           <div class="article-metadata d-flex flex-row justify-content-between">
             <div class="d-flex flex-row mb-2">
-              <a class="mr-2 mb-0" style="color: #007880; font-size: 22px"
-                 href="{% url 'user_list' entry.author.username %}">{{ entry.author }}</a>
+              <h3 class="mr-2 mb-0" style="color: #007880; font-size: 22px"
+                 href="#">{{ entry.entry_number }}</h3>
+{#              <a class="mr-2 mb-0" style="color: #007880; font-size: 22px"#}
+{#                 href="{% url 'user_list' entry.author.username %}">{{ entry.author }}</a>#}
               <small class="text-muted d-flex align-items-end" style="margin-left: 10px;">
                 {{ entry.updated|date:'F d, Y' }}</small>
             </div>
             <div>
+              <small class="article-footer bg-yellow status-bg">{{ entry.get_status_display }}</small>
+              <small class="article-footer bg-yellow status-bg">{{ entry.get_record_display }}</small>
               <small class="text-muted">{{ entry.type }}</small>
             </div>
           </div>
