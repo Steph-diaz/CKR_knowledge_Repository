@@ -158,6 +158,9 @@ footer {
   border-color: #5f788a;
 }
 
+/* final= #aaf0c6 | in progress= #f0c6aa  */
+/* active= #bbf3ed   | archived= #d7d7d7  */
+
 /* Data tables styling*/
 .paginate_button {
   color: #555;
