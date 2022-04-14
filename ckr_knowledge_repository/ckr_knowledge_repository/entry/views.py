@@ -9,6 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from api.models import Entry
 from ckr_knowledge_repository.users.models import User
 from django.shortcuts import render, get_object_or_404
+from django.db.models import Q
 
 
 class EntryView(LoginRequiredMixin, ListView):
@@ -19,6 +20,30 @@ class EntryView(LoginRequiredMixin, ListView):
 #     order entries from newest to oldest
     ordering = ['-updated']
 
+    def get_queryset(self):
+        qs = Entry.objects.all()
+        entry_number_query = self.request.GET.get('entry_number')
+        entry_status_query = self.request.GET.get('entry_status')
+        entry_keywords_query = self.request.GET.get('entry_keywords')
+        entry_type_query = self.request.GET.get('entry_type')
+        # entry_type_author_query = self.request.GET.get('entry_type_author')
+
+        if entry_number_query != '' and entry_number_query is not None:
+            qs = qs.filter(entry_number__icontains=entry_number_query)
+        elif entry_status_query != '' and entry_status_query is not None:
+            qs = qs.filter(Q(status__icontains=entry_status_query) | Q(
+                record__icontains=entry_status_query))
+        elif entry_keywords_query != '' and entry_keywords_query is not None:
+            qs = qs.filter(key_words__icontains=entry_keywords_query)
+        elif entry_type_query != '' and entry_type_query is not None:
+            qs = qs.filter(type__icontains=entry_type_query)
+        # elif entry_type_author_query != '' and entry_type_author_query is not None:
+        #     qs = qs.filter(Q(type__icontains=entry_type_author_query) | Q(
+        #         author__name__icontains=entry_type_author_query))
+        else:
+            qs = qs
+
+        return qs
 
 class UserListView(LoginRequiredMixin, ListView):
     model = Entry
