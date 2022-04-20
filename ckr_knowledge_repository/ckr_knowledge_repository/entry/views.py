@@ -16,7 +16,7 @@ class EntryView(LoginRequiredMixin, ListView):
     model = Entry
     template_name = 'Entry/home_page.html'
     context_object_name = 'entries'
-    paginate_by = 4
+    paginate_by = 10
 #     order entries from newest to oldest
     ordering = ['-updated']
 
@@ -36,14 +36,15 @@ class EntryView(LoginRequiredMixin, ListView):
         elif entry_keywords_query != '' and entry_keywords_query is not None:
             qs = qs.filter(key_words__icontains=entry_keywords_query)
         elif entry_type_query != '' and entry_type_query is not None:
-            qs = qs.filter(type__icontains=entry_type_query)
+            qs = qs.filter(type__icontains=entry_type_query).distinct()
         # elif entry_type_author_query != '' and entry_type_author_query is not None:
         #     qs = qs.filter(Q(type__icontains=entry_type_author_query) | Q(
         #         author__name__icontains=entry_type_author_query))
         else:
             qs = qs
 
-        return qs
+        return qs.order_by('-updated')
+
 
 class UserListView(LoginRequiredMixin, ListView):
     model = Entry

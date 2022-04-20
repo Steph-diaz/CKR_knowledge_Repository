@@ -2,61 +2,55 @@
 
 {% block content %}
 
-  <p>{{ history.title }}</p>
-  <p>{{ history.history_date }}</p>
-  <p>{{ history.content }}</p>
-{#  <article class="media content-section">#}
-{#    <div class="media-body">#}
-{#      <div class="article-metadata ">#}
-{#        <div class="d-flex flex-row justify-content-between mb-2">#}
-{#          <div class="">#}
+{#  <p>{{ history.title }}</p>#}
+{#  <p>{{ history.history_user }}</p>#}
+{#  <p>{{ history.history_date }}</p>#}
+{#  <p>{{ history.content }}</p>#}
+  <article class="media content-section">
+    <div class="media-body">
+      <div class="article-metadata ">
+        <div class="d-flex flex-row justify-content-between mb-2">
+          <div class="">
 {#            <a class="mr-3 d-flex flex-row align-items-center" style="color: #007880;"#}
-{#                href="{% url 'user_list' entry.author.username %}">{{ entry.author }}</a>#}
-{#            {% if entry.date|date:'F d, Y' == entry.updated|date:'F d, Y' %}#}
-{#              <div>#}
-{#                <small class="align-items-end font-weight-bold font-italic">#}
-{#                  Posted:</small>#}
-{#                <small class="text-muted  align-items-end" style="margin-right: 5px">#}
-{#                {{ entry.date|date:'F d, Y' }}</small>#}
-{#              </div>#}
-{#            {% elif entry.date|date:'F d, Y' != entry.updated|date:'F d, Y' %}#}
-{#              <div>#}
-{#                <small class="align-items-end font-weight-bold font-italic">#}
-{#                  Posted:</small>#}
-{#                <small class="text-muted  align-items-end" style="margin-right: 5px">#}
-{#                {{ entry.date|date:'F d, Y' }}</small>#}
-  {#              separator between dates#}
-{#                <small>|</small>#}
-{#                <small class="align-items-end font-weight-bold font-italic"#}
-{#                       style="margin-left: 5px"> Updated:</small>#}
-{#                <small class="text-muted  align-items-end">#}
-{#                {{ entry.updated|date:'F d, Y' }}</small>#}
-{#              </div>#}
-{#            {% endif %}#}
-{#          </div>#}
-{#          <div>#}
-{#            <small class="text-muted d-flex flex-row justify-content-end">{{ entry.type }}</small>#}
-{#            {% if entry.author == user %}#}
-{#          <div class="d-flex flex-row justify-content-end mt-2 mb-2">#}
-{#            <a class="btn btn-green btn-sm"#}
-{#                 href="{% url "entry_update" pk=entry.id%}">Update Entry</a>#}
-{#            <a class="btn btn-red btn-l-margin btn-sm"#}
-{#                 href="{% url "entry_delete" pk=entry.id%}">Delete Entry</a>#}
-{#          </div>#}
-{#          {% endif %}#}
-{#          </div>#}
-{#        </div>#}
-{##}
-{##}
-{#      </div>#}
-{#      <h2 class="article-title mt-2">{{ entry.title }}</h2>#}
-{#      <p class="article-content">{{ entry.content }}</p>#}
-{##}
-{#      <small class="article-footer bg-yellow key-bg">{{ entry.key_words }}</small>#}
-{##}
-{#    </div>#}
-{##}
-{##}
-{#  </article>#}
+{#                href="">{{ history.entry_number }}</a>#}
+            <p class="mr-3 d-flex flex-row align-items-center">Entry number:
+              <span style="color: #007880; margin-left: 5px;">{{ history.entry_number }}</span></p>
+
+            <div>
+              <small class="align-items-end font-weight-bold font-italic">
+                {{ history.get_history_type_display }}:</small>
+              <small class="text-muted  align-items-end" style="margin-right: 5px">
+              {{ history.history_date|date:'F d, Y' }}</small>
+              <small class="align-items-end font-weight-bold font-italic">
+                by </small>
+              <small class="text-muted  align-items-end" style="margin-right: 5px">
+              {{ history.history_user }}</small>
+            </div>
+
+          </div>
+          <div>
+            <small class="text-muted d-flex flex-row justify-content-end">{{ history.type }}</small>
+
+          <div class="d-flex flex-row justify-content-end mt-2 mb-2">
+            <small class="bg-yellow status-bg">{{ history.get_status_display }}</small>
+            <small class="bg-yellow status-bg">{{ history.get_record_display }}</small>
+          </div>
+
+          </div>
+        </div>
+
+
+      </div>
+      <h2 class="article-title mt-2">{{ history.title }}</h2>
+      <p class="article-content" style="overflow: auto;">{{ history.content }}</p>
+      <hr>
+      <p class="article-content" style="overflow: auto;">{{ history.links }}</p>
+
+      <small class="article-footer bg-yellow key-bg">{{ history.key_words }}</small>
+
+    </div>
+
+
+  </article>
 
 {% endblock content %}
