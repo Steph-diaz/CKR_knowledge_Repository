@@ -204,6 +204,14 @@ footer {
   margin-top: 15px;
 }
 
+/* Scroll up button*/
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: none;
+}
+
 /*.article-svg {*/
 /*  width: 25px;*/
 /*  height: 25px;*/
