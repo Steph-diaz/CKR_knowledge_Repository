@@ -7,9 +7,11 @@
       <div class="article-metadata ">
         <div class="d-flex flex-row justify-content-between mb-2">
           <div class="">
-            <a class="mr-3 d-flex flex-row align-items-center" style="color: #007880;"
-                href="{% url 'user_list' entry.author.username %}">{{ entry.author }}</a>
-
+{#            <a class="mr-3 d-flex flex-row align-items-center" style="color: #007880;"#}
+{#                href="{% url 'user_list' entry.author.username %}">{{ entry.author }}</a>#}
+            <p>Record # <span style="color: #007880; margin-left: 5px;">
+              {{ entry.entry_number }}</span>  <span style="margin: 0 5px">|</span>  Last updated by
+            <span style="color: #007880; margin-left: 4px;">{{ entry.author }}</span></p>
             {% if entry.date|date:'F d, Y' == entry.updated|date:'F d, Y' %}
               <div>
                 <small class="align-items-end font-weight-bold font-italic">

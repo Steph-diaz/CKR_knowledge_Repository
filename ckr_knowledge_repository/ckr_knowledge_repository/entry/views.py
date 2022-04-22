@@ -16,7 +16,7 @@ class EntryView(LoginRequiredMixin, ListView):
     model = Entry
     template_name = 'Entry/home_page.html'
     context_object_name = 'entries'
-    paginate_by = 10
+    # paginate_by = 10
 #     order entries from newest to oldest
     ordering = ['-updated']
 
