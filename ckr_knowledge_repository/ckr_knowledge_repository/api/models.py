@@ -15,6 +15,23 @@ ENTRY_RECORD = (
     ('ARCHIVED', 'Archived'),
 )
 
+TYPES = (
+    ('Animal', 'Animals'),
+    ('BP', 'Business processes'),
+    ('CellAg', 'Cellular agriculture'),
+    ('Comms', 'Communications'),
+    ('Ingr', 'Ingredients or substances'),
+    ('Intl', 'International regulatory'),
+    ('Inqs', 'Inquiries'),
+    ('Microb', 'Microbes'),
+    ('MMEval', 'Molecular and micro review'),
+    ('Plants', 'Plants'),
+    ('Regs', 'Regulatory interpretations'),
+    ('Taxon', 'Taxonomy'),
+    ('Troubl', 'Technical troubleshooting'),
+    ('MMTech', 'Technologies')
+)
+
 
 class Entry(models.Model):
     name = 'entry'
@@ -22,7 +39,7 @@ class Entry(models.Model):
     entry_number = models.IntegerField(blank=True, null=True)
     title = models.CharField(max_length=50, null=True, blank=True)
     date = models.DateTimeField(default=timezone.now)
-    type = models.CharField(max_length=50, null=True, blank=True)
+    type = models.CharField(max_length=50, choices=TYPES, default='Animal')
     content = models.TextField(null=True, blank=True)
     links = models.TextField(null=True, blank=True)
     key_words = models.CharField(max_length=60, blank=True, null=True)
