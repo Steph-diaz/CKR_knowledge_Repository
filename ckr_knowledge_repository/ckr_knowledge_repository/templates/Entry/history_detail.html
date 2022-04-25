@@ -32,8 +32,16 @@
             <small class="text-muted d-flex flex-row justify-content-end">{{ history.type }}</small>
 
           <div class="d-flex flex-row justify-content-end mt-2 mb-2">
-            <small class="bg-yellow status-bg">{{ history.get_status_display }}</small>
-            <small class="bg-yellow status-bg">{{ history.get_record_display }}</small>
+            {% if history.get_status_display == 'Final' %}
+                <small class="bg-final status-bg">{{ history.get_status_display }}</small>
+              {% else %}
+                <small class="bg-progress status-bg">{{ history.get_status_display }}</small>
+              {% endif %}
+              {% if history.get_record_display == 'Active' %}
+                <small class="bg-final status-bg">{{ history.get_record_display }}</small>
+              {% else %}
+                <small class="bg-archived status-bg">{{ history.get_record_display }}</small>
+              {% endif %}
           </div>
 
           </div>

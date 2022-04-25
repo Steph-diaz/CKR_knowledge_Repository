@@ -60,8 +60,18 @@
                 {{ entry.updated|date:'F d, Y' }}</small>
             </div>
             <div>
-              <small class="article-footer bg-yellow status-bg">{{ entry.get_status_display }}</small>
-              <small class="article-footer bg-yellow status-bg">{{ entry.get_record_display }}</small>
+              {% if entry.get_status_display == 'Final' %}
+                <small class="article-footer bg-final status-bg">{{ entry.get_status_display }}</small>
+              {% else %}
+                <small class="article-footer bg-progress status-bg">{{ entry.get_status_display }}</small>
+              {% endif %}
+              {% if entry.get_record_display == 'Active' %}
+                <small class="article-footer bg-final status-bg"
+                >{{ entry.get_record_display }}</small>
+              {% else %}
+                <small class="article-footer bg-archived status-bg">{{ entry.get_record_display }}</small>
+              {% endif %}
+
               <small class="text-muted">{{ entry.type }}</small>
             </div>
           </div>
@@ -76,7 +86,7 @@
       </article>
   {% endfor %}
 
-  <a id="back-to-top" href="#" class="btn btn-lg back-to-top bg-secondary text-white"
+  <a id="back-to-top" href="#" class="btn btn-lg back-to-top bg-steel text-white"
      role="button">Back to top</a>
 
   <div class="d-flex justify-content-center">

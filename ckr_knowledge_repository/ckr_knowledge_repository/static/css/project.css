@@ -34,6 +34,26 @@ ul {
   background-color: #f6dbbb;
 }
 
+.bg-final {
+  background-color: #aaf0c6;
+}
+
+.bg-progress {
+  background-color: #f0c6aa;
+}
+
+.bg-active {
+  background-color: #bbf3ed;
+}
+
+.bg-archived {
+  background-color:  #d7d7d7;
+}
+/* final= #aaf0c6 | in progress= #f0c6aa  */
+/* active= #bbf3ed   | archived= #d7d7d7  */
+
+
+
 .site-header .navbar-nav .nav-link {
   color: #cbd5db;
 }
@@ -123,6 +143,18 @@ footer {
   border-color: #729a8d;
 }
 
+.btn-orange {
+  background: #FFCDAC;
+  color: #444444;
+  border-color: #FFCDAC;
+}
+
+.btn-orange:hover {
+  background: #ffae79;
+  /*color: white;*/
+  border-color: #ffae79;
+}
+
 .btn-green {
   background: #A3DDCA;
   color: #444444;
@@ -164,9 +196,6 @@ footer {
   border-color: #5f788a;
   background-color: #5f788a;
 }
-
-/* final= #aaf0c6 | in progress= #f0c6aa  */
-/* active= #bbf3ed   | archived= #d7d7d7  */
 
 /* Data tables styling*/
 .paginate_button {
