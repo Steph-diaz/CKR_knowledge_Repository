@@ -47,7 +47,8 @@
 
 
   </form>
-  {% for entry in entries %}
+  {% if entries %}
+    {% for entry in entries %}
       <article class="media content-section">
         <div class="media-body">
           <div class="article-metadata d-flex flex-row justify-content-between">
@@ -84,7 +85,11 @@
 
         </div>
       </article>
-  {% endfor %}
+    {% endfor %}
+  {% else %}
+    <h3 class="text-center mt-5">No entries match your search</h3>
+  {% endif %}
+
 
   <a id="back-to-top" href="#" class="btn btn-lg back-to-top bg-steel text-white"
      role="button">Back to top</a>
