@@ -22,14 +22,14 @@ class EntryView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         qs = Entry.objects.all()
-        entry_number_query = self.request.GET.get('entry_number')
+        entry_number_query = self.request.GET.get('entry_id')
         entry_status_query = self.request.GET.get('entry_status')
         entry_keywords_query = self.request.GET.get('entry_keywords')
         entry_type_query = self.request.GET.get('entry_type')
         # entry_type_author_query = self.request.GET.get('entry_type_author')
 
         if entry_number_query != '' and entry_number_query is not None:
-            qs = qs.filter(entry_number__icontains=entry_number_query)
+            qs = qs.filter(id__icontains=entry_number_query)
         elif entry_status_query != '' and entry_status_query is not None:
             qs = qs.filter(Q(status__icontains=entry_status_query) | Q(
                 record__icontains=entry_status_query))
@@ -68,7 +68,7 @@ class EntryCreateView(LoginRequiredMixin, CreateView):
     template_name = 'Entry/entry_form.html'
     context_object_name = 'entry'
     # fields = ['title', 'content', 'type', 'key_words']
-    fields = ['entry_number', 'status','record', 'title', 'content', 'type', 'key_words', 'links']
+    fields = ['status', 'record', 'title', 'content', 'type', 'key_words', 'links']
 
     # set author in form
     def form_valid(self, form):
