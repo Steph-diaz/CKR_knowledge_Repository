@@ -19,7 +19,7 @@
       {% for t in object_list %}
         <tr>
           <td class="text-center"><a href="{% url 'history_detail' pk=t.history_id%}"
-                                     target="_blank">{{ t.entry_number }}</a></td>
+                                     target="_blank">{{ t.id }}</a></td>
           <td>{{ t.title }}</td>
           <td class="text-center">{{ t.history_date|date:'F d, Y' }}</td>
           <td class="text-center">{{ t.get_record_display }}</td>
