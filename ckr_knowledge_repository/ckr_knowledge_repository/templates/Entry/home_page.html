@@ -61,7 +61,7 @@
                 {{ entry.updated|date:'F d, Y' }}</small>
             </div>
             <div>
-              {% if entry.get_status_display == 'Final' %}
+              {% if entry.get_status_display == 'Approved' %}
                 <small class="article-footer bg-final status-bg">{{ entry.get_status_display }}</small>
               {% else %}
                 <small class="article-footer bg-progress status-bg">{{ entry.get_status_display }}</small>
