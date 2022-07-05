@@ -83,7 +83,7 @@ class EntryUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'Entry/entry_form.html'
     context_object_name = 'entry'
     # fields = ['title', 'content', 'type', 'key_words']
-    fields = ['entry_number', 'status','record', 'title', 'content', 'type', 'key_words', 'links']
+    fields = ['status', 'record', 'title', 'content', 'type', 'key_words', 'links']
 
     # set author in form
     def form_valid(self, form):
