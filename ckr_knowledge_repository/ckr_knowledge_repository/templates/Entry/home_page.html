@@ -1,25 +1,26 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block precontent %}
+
   <form method="GET" action="." >
         <div class="form-row d-flex flex-row justify-content-between mb-4">
 
 
-          <div class="form-group col-2">
-              <div class="input-group">
+          <div class="form-group">
+              <div class="input-group" style="width: 120px">
                   <input class="form-control py-2 border-right-0 border" type="search"
                          name="entry_id" placeholder="Entry #"/>
               </div>
           </div>
-          <div class="form-group col-2">
-              <div class="input-group">
+          <div class="form-group">
+              <div class="input-group" style="width: 150px">
                   <input class="form-control py-2 border-right-0 border" type="search"
                          name="entry_status" placeholder="Status..."/>
 
               </div>
           </div>
-          <div class="form-group col-3">
-              <div class="input-group">
+          <div class="form-group">
+              <div class="input-group" style="width: 230px">
                   <input class="form-control py-2 border-right-0 border" type="search"
                          name="entry_keywords" placeholder="Keywords..."/>
 {#                    <span class="input-group-append">#}
@@ -29,10 +30,21 @@
 {#                    </span>#}
               </div>
           </div>
-          <div class="form-group col-3">
-              <div class="input-group">
+          <div class="form-group">
+              <div class="input-group" style="width: 170px">
                   <input class="form-control py-2 border-right-0 border" type="search"
                          name="entry_type" placeholder="Type..."/>
+{#                    <span class="input-group-append">#}
+{#                        <div class="input-group-text bg-transparent">#}
+{#                            <i class="fa fa-search"></i>#}
+{#                        </div>#}
+{#                    </span>#}
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="input-group" style="width: 250px">
+                  <input class="form-control py-2 border-right-0 border" type="search"
+                         name="entry_content" placeholder="In content..."/>
 {#                    <span class="input-group-append">#}
 {#                        <div class="input-group-text bg-transparent">#}
 {#                            <i class="fa fa-search"></i>#}
@@ -43,10 +55,11 @@
           <button type="submit"
                   class="btn btn-outline-steel btn-sm">Search</button>
         </div>
-
-
-
   </form>
+{% endblock %}
+
+{% block content %}
+
   {% if entries %}
     {% for entry in entries %}
       <article class="media content-section">
@@ -77,7 +90,7 @@
             </div>
           </div>
           <h2><a class="article-title mt-2" href="{% url 'entry_detail' pk=entry.id %}"
-          >{{ entry.title }}</a></h2>
+          target="_blank">{{ entry.title }}</a></h2>
 {#            Add style = white-space:nowrap to add 3 points at the end#}
           <p class="article-content  text-truncate"
              style="max-height: 70px; ">{{ entry.content }}</p>

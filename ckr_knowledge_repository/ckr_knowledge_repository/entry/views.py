@@ -26,7 +26,7 @@ class EntryView(LoginRequiredMixin, ListView):
         entry_status_query = self.request.GET.get('entry_status')
         entry_keywords_query = self.request.GET.get('entry_keywords')
         entry_type_query = self.request.GET.get('entry_type')
-        # entry_type_author_query = self.request.GET.get('entry_type_author')
+        entry_content_query = self.request.GET.get('entry_content')
 
         if entry_number_query != '' and entry_number_query is not None:
             qs = qs.filter(id__icontains=entry_number_query)
@@ -37,9 +37,10 @@ class EntryView(LoginRequiredMixin, ListView):
             qs = qs.filter(key_words__icontains=entry_keywords_query)
         elif entry_type_query != '' and entry_type_query is not None:
             qs = qs.filter(type__icontains=entry_type_query).distinct()
-        # elif entry_type_author_query != '' and entry_type_author_query is not None:
-        #     qs = qs.filter(Q(type__icontains=entry_type_author_query) | Q(
-        #         author__name__icontains=entry_type_author_query))
+        elif entry_content_query != '' and entry_content_query is not None:
+            qs = qs.filter(Q(content__icontains=entry_content_query))
+            # | Q( author__name__icontains=entry_type_author_query))
+
         else:
             qs = qs
 
