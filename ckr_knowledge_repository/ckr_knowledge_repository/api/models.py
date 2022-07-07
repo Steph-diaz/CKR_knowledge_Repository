@@ -16,22 +16,24 @@ ENTRY_RECORD = (
 )
 
 TYPES = (
-    ('Animal', 'Animals'),
-    ('BP', 'Business processes'),
-    ('CellAg', 'Cellular agriculture'),
+    ('Animal', 'Animal'),
+    ('Business', 'Business Processes'),
+    ('CellAg', 'Cellular Agriculture'),
     ('Comms', 'Communications'),
-    ('EmgSci', 'Emerging Science'),
-    ('Ingr', 'Ingredients or substances'),
-    ('Intl', 'International'),
-    ('Inqs', 'Inquiries'),
+    ('Foresight', 'Foresight'),
+    ('Ingredients', 'Ingredients'),
+    ('International', 'International Regulatory'),
+    ('Inquiries', 'Inquiries'),
     ('JClub', 'Journal Club'),
-    ('Microb', 'Microbes'),
-    ('MMEval', 'Molecular and micro review'),
+    ('Micro', 'Microbes'),
+    ('Molecular', 'Molecular'),
     ('Plants', 'Plants'),
-    ('Regs', 'Regulatory'),
-    ('PreMkt', 'Pre-market'),
-    ('Troubl', 'Technical troubleshooting'),
-    ('MMTech', 'Technologies')
+    ('PreMarket', 'Pre-market'),
+    ('Regulatory', 'Regulatory Interpretations'),
+    ('Substances', 'Substances'),
+    ('Science', 'Science'),
+    ('HowTo', 'Technical Troubleshooting'),
+    ('Tech', 'Technologies')
 )
 
 
