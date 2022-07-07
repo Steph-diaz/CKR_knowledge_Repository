@@ -100,6 +100,11 @@
 
     <main role="main" class="container">
       <div class="row">
+        <div >
+          {% block precontent %}{% endblock %}
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-9">
           {% if messages %}
             {% for message in messages %}
@@ -112,9 +117,10 @@
           {% block content %}{% endblock %}
         </div>
         <div class ="col-md-3">
+          {% block sidebar %}
           {% if request.user.is_authenticated %}
-            <div class="content-section">
-              <h3>Actions</h3>
+            <div class="content-section" style="border-radius:10px"> {# style="background-color: #f6f3f4;" #}
+              <h3 style="opacity: 0.85">Actions</h3>
               <p class='text-muted'>What would you like to do...</p>
               <div class="list-group">
                 <a class="list-group-item list-group-item-light list-group-item-action"
@@ -127,7 +133,23 @@
   {#                   href="#">etc</a>#}
               </div>
             </div>
+
+            <div class="content-section" style="background-color: #f4f6f3; border-radius:10px">
+              <h3 class="text-center" style="opacity: 0.90; padding-top: 15px">CRK</h3>
+              <h3 class="text-center" style="opacity: 0.90">Best Practices</h3>
+              <br>
+              <p>Please do not enter in this repository any:</p>
+              <ul>
+                <li>Protected B information</li>
+                <li>Company or individual names</li>
+                <li>Confidential business information</li>
+              </ul>
+              <br>
+              <p>Before adding new information, please search for existing entries and add to
+                this. If none exist, create a new entry.</p>
+            </div>
           {% endif %}
+          {% endblock %}
         </div>
       </div>
     </main>
