@@ -41,7 +41,8 @@ class Entry(models.Model):
     name = 'entry'
 
     entry_number = models.IntegerField(blank=True, null=True)
-    title = models.CharField(max_length=500, null=True, blank=True)
+    # Title was a CharField with a max length of 500
+    title = models.TextField(null=True, blank=True)
     date = models.DateTimeField(default=timezone.now)
     type = models.CharField(max_length=50, choices=TYPES, default='Animal')
     content = models.TextField(null=True, blank=True)
